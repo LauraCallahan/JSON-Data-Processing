@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl implements OrderService {
     @Override
     public OrderInfo evaluateOrders(OrderData orderData) {
+        OrderInfo orderInfo = setTotalOrderAndValue(orderData);
+
+        return setSumDigits(orderInfo);
+    }
+
+    public OrderInfo setTotalOrderAndValue(OrderData orderData) {
         OrderInfo orderInfo = new OrderInfo();
         Order[] orders = orderData.getOrders().toArray(new Order[0]);
 
@@ -24,7 +30,13 @@ public class OrderServiceImpl implements OrderService {
         orderInfo.setTotal_orders(totalOrders);
         orderInfo.setTotal_order_value(totalOrderValue);
 
+        return orderInfo;
+    }
+
+    public OrderInfo setSumDigits(OrderInfo orderInfo) {
+
         String[] numArray = orderInfo.getTotal_orders().toString().split("");
+
         int sumDigits = 0;
         for ( String num : numArray) {
             sumDigits += Integer.parseInt(num);
