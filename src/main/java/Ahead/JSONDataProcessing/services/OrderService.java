@@ -6,7 +6,5 @@ import Ahead.JSONDataProcessing.model.OrderInfo;
 public interface OrderService {
 
     OrderInfo evaluateOrders(OrderData orderData);
-    OrderInfo setTotalOrderAndValue(OrderData orderData);
-    OrderInfo setSumDigits(OrderInfo orderInfo);
 
 }
