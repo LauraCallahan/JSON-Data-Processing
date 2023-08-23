@@ -64,7 +64,6 @@ class OrderControllerTest {
 
         orderData.setOrders(orderArrayList);
         orderData.setOrders(orderArrayList);
-        System.out.println(orderData.getOrders());
     }
 
 
