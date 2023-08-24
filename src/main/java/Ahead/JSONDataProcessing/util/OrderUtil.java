@@ -14,6 +14,7 @@ public class OrderUtil {
         double totalOrderValue = 0.0;
 
         for (Order order : orders) {
+            if (order.getQuantity() == null || order.getUnit_price() == null) continue;
             int quantity = order.getQuantity();
             totalOrders += quantity;
 
